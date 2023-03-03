@@ -8,6 +8,10 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { AppNavigator } from '~/presentation/navigation';
 
+// Styles
+import { ThemeProvider } from 'styled-components';
+import { theme } from '~/presentation/styles';
+
 export default function Main() {
   const [isFontsLoaded] = useFonts({
     'Montserrat-Regular': Montserrat_400Regular,
@@ -19,7 +23,11 @@ export default function Main() {
     return null;
   }
 
-  return <AppNavigator />;
+  return (
+    <ThemeProvider theme={theme}>
+      <AppNavigator />
+    </ThemeProvider>
+  );
 }
 
 registerRootComponent(Main);
