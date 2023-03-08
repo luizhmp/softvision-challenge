@@ -1,6 +1,7 @@
 export * from './buttons';
 export * from './icons/cart-icon';
 export * from './checkout-product-card';
+export * from './empty-shopping-cart';
 export * from './error-screen';
 export * from './texts/heading';
 export * from './icons';

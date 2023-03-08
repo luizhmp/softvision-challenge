@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 
 // Components
 import { FlatList } from 'react-native';
-import { CheckoutProductCard, ListFooter } from '~/presentation/components';
+import { CheckoutProductCard, EmptyShoppingCart, ListFooter } from '~/presentation/components';
 import { Heading } from '~/presentation/components/texts';
 
 // Redux
@@ -56,6 +56,10 @@ export function CartScreen() {
     return <Heading type="H1">{`${totalProductsInCart} ${productText}`}</Heading>;
   }
 
+  function renderEmptyComponent() {
+    return <EmptyShoppingCart />;
+  }
+
   return (
     <FlatList
       keyExtractor={(item) => item.id.toString()}
@@ -69,6 +73,7 @@ export function CartScreen() {
       showsVerticalScrollIndicator={false}
       ListHeaderComponent={renderHeader}
       ListFooterComponent={renderFooter}
+      ListEmptyComponent={renderEmptyComponent}
     />
   );
 }

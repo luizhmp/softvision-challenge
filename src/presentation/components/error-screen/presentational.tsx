@@ -18,7 +18,6 @@ import {
 
 // Types
 import { ErrorScreenPresentationalInterface } from './types';
-import { ImageSourcePropType } from 'react-native';
 
 export function ErrorScreen({ errorMessage, onPressTryAgain }: ErrorScreenPresentationalInterface) {
   const errorImageSource = '../../../../assets/images/error-image.png';
@@ -26,7 +25,7 @@ export function ErrorScreen({ errorMessage, onPressTryAgain }: ErrorScreenPresen
 
   return (
     <ErrorScreenContainer>
-      <StyledImage source={require(errorImageSource) as ImageSourcePropType} />
+      <StyledImage source={require(errorImageSource)} />
       <Heading type="H1">{errorMessage}</Heading>
       <StyledButton onPress={onPressTryAgain}>
         <IconContainer>
