@@ -10,7 +10,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
 
 // Styles
-import { UserCheckoutProductsTotalQuantityContainer, WhiteHeading } from './styles';
+import { BoldHeading, UserCheckoutProductsTotalQuantityContainer } from './styles';
 
 // Types
 import { StackNavigation } from '~/presentation/navigation/navigators/types';
@@ -50,7 +50,7 @@ export function CartIcon() {
 
     return (
       <UserCheckoutProductsTotalQuantityContainer>
-        <WhiteHeading type="H1">{totalProductsInCart}</WhiteHeading>
+        <BoldHeading type="H1">{totalProductsInCart}</BoldHeading>
       </UserCheckoutProductsTotalQuantityContainer>
     );
   }
@@ -59,7 +59,7 @@ export function CartIcon() {
     <AntDesign.Button
       name="shoppingcart"
       size={24}
-      color={colors.black}
+      color={colors.white}
       backgroundColor={colors.primary}
       onPress={goToCartScreen}
     >

@@ -3,6 +3,10 @@ import styled, { css } from 'styled-components/native';
 // Components
 import { Heading } from '~/presentation/components/texts';
 
+export const BoldHeading = styled(Heading)`
+  font-weight: bold;
+`;
+
 export const UserCheckoutProductsTotalQuantityContainer = styled.View`
   ${({ theme }) => {
     return css`
@@ -16,15 +20,6 @@ export const UserCheckoutProductsTotalQuantityContainer = styled.View`
       justify-content: center;
       align-items: center;
       background-color: ${theme.colors.secondary};
-    `;
-  }};
-`;
-
-export const WhiteHeading = styled(Heading)`
-  ${({ theme }) => {
-    return css`
-      color: ${theme.colors.black};
-      font-weight: bold;
     `;
   }};
 `;

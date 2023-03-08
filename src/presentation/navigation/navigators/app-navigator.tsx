@@ -26,6 +26,7 @@ export function AppNavigator() {
             backgroundColor: colors.primary,
           },
           headerTitleAlign: 'center',
+          headerTintColor: colors.white,
           headerRight: () => <CartIcon />,
         }}
       >
