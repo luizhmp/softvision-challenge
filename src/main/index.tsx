@@ -8,6 +8,10 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { AppNavigator } from '~/presentation/navigation';
 
+// Redux
+import store from '~/presentation/redux/store/redux-store';
+import { Provider } from 'react-redux';
+
 // Styles
 import { ThemeProvider } from 'styled-components';
 import { theme } from '~/presentation/styles';
@@ -24,9 +28,11 @@ export default function Main() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppNavigator />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <AppNavigator />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
