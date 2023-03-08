@@ -5,6 +5,7 @@ export * from './error-screen';
 export * from './texts/heading';
 export * from './icons';
 export * from './list-footer';
+export * from './navigation-header-title';
 export * from './product-card';
 export * from './buttons/quantity-button';
 export * from './icons/remove-item-icon';
