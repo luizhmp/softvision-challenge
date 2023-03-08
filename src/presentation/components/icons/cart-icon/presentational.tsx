@@ -60,7 +60,7 @@ export function CartIcon() {
       name="shoppingcart"
       size={24}
       color={colors.black}
-      backgroundColor={colors.white}
+      backgroundColor={colors.primary}
       onPress={goToCartScreen}
     >
       {renderQuantityIndicator()}

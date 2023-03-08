@@ -23,7 +23,8 @@ export const UserCheckoutProductsTotalQuantityContainer = styled.View`
 export const WhiteHeading = styled(Heading)`
   ${({ theme }) => {
     return css`
-      color: ${theme.colors.white};
+      color: ${theme.colors.black};
+      font-weight: bold;
     `;
   }};
 `;
