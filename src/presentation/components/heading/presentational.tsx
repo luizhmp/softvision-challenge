@@ -6,6 +6,10 @@ import { StyledText } from './styles';
 // Types
 import { HeadingPresentationalInterface } from './types';
 
-export function Heading({ children, type }: HeadingPresentationalInterface) {
-  return <StyledText type={type}>{children}</StyledText>;
+export function Heading({ children, style, type }: HeadingPresentationalInterface) {
+  return (
+    <StyledText type={type} numberOfLines={1} style={style}>
+      {children}
+    </StyledText>
+  );
 }
