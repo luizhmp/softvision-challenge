@@ -7,7 +7,7 @@ import { routes } from '~/presentation/navigation/routes';
 import { CartScreen, HomeScreen } from '~/presentation/screens';
 
 // Components
-import { NavigationCartIcon } from '~/presentation/components';
+import { CartIcon } from '~/presentation/components';
 
 // Types
 import { RootStackParamList } from './types';
@@ -17,7 +17,7 @@ export function AppNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerRight: () => <NavigationCartIcon /> }}>
+      <Stack.Navigator screenOptions={{ headerRight: () => <CartIcon /> }}>
         <Stack.Screen
           name={routes.HomeScreen}
           component={HomeScreen}

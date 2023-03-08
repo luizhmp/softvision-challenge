@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { routes } from '~/presentation/navigation';
 import { StackNavigation } from '~/presentation/navigation/types';
 
-export function NavigationCartIcon() {
+export function CartIcon() {
   const navigation = useNavigation<StackNavigation>();
 
   function goToCartScreen() {
