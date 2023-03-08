@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 // Components
-import { Heading, QuantityButton, RemoveItemIcon } from '~/presentation/components';
+import { QuantityButton } from '~/presentation/components/buttons';
+import { RemoveItemIcon } from '~/presentation/components/icons';
+import { Heading } from '~/presentation/components/texts';
 
 // Helpers
 import { formatNumberIntoCurrency } from '~/presentation/helpers';

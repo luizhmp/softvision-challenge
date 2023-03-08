@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/native';
 
 // Components
-import { Heading } from '~/presentation/components';
+import { Heading } from '~/presentation/components/texts';
 
 export const ProductQuantityContainer = styled.View`
   ${({ theme }) => {

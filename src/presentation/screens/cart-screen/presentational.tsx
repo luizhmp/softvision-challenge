@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 
 // Components
 import { FlatList } from 'react-native';
-import { CheckoutProductCard, Heading, ListFooter } from '~/presentation/components';
+import { CheckoutProductCard, ListFooter } from '~/presentation/components';
+import { Heading } from '~/presentation/components/texts';
 
 // Redux
 import { useSelector } from 'react-redux';

@@ -5,7 +5,7 @@ import { ThemeContext } from 'styled-components';
 import { AntDesign } from '@expo/vector-icons';
 
 // Components
-import { Heading } from '~/presentation/components';
+import { Heading } from '~/presentation/components/texts';
 
 // Styles
 import {

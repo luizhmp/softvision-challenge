@@ -1,2 +1,2 @@
-export * from './app-navigator';
+export * from './navigators';
 export * from './routes';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { Heading } from '~/presentation/components';
+import { Heading } from '~/presentation/components/texts';
 
 // Styles
 import {

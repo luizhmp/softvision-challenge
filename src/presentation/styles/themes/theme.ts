@@ -1,4 +1,5 @@
-import { ColorsInterface, MetricsInterface, colors, metrics } from '~/presentation/styles';
+import { MetricsInterface, metrics } from '~/presentation/styles/metrics';
+import { ColorsInterface, colors } from '~/presentation/styles/colors';
 import { DefaultTheme } from 'styled-components/native';
 
 declare module 'styled-components' {

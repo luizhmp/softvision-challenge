@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/native';
 
 // Components
-import { Heading } from '~/presentation/components';
+import { Heading } from '~/presentation/components/texts';
 
 // Types
 import { TitleWrapperStyleInterface } from './types';

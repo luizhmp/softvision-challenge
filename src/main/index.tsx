@@ -6,7 +6,7 @@ import {
   Montserrat_500Medium,
   Montserrat_600SemiBold,
 } from '@expo-google-fonts/montserrat';
-import { AppNavigator } from '~/presentation/navigation';
+import { AppNavigator } from '~/presentation/navigation/navigators';
 
 // Redux
 import store from '~/presentation/redux/store/redux-store';
