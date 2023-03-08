@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import { routes } from '~/presentation/navigation';
@@ -11,5 +12,15 @@ export function NavigationCartIcon() {
     navigation.navigate(routes.CartScreen);
   }
 
-  return <AntDesign.Button name="shoppingcart" size={24} color="black" onPress={goToCartScreen} />;
+  const { colors } = useContext(ThemeContext);
+
+  return (
+    <AntDesign.Button
+      name="shoppingcart"
+      size={24}
+      color="black"
+      backgroundColor={colors.white}
+      onPress={goToCartScreen}
+    />
+  );
 }
