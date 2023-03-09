@@ -20,7 +20,7 @@ export const AnimatedView = styled(Animated.View)`
 export const SkeletonLoadingContainer = styled.View`
   ${({ theme }) => {
     return css`
-      width: 175px;
+      flex: 1;
       height: 200px;
       opacity: 0.5;
       border-radius: ${theme.metrics.borderRadius}px;

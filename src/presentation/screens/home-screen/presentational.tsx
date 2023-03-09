@@ -58,9 +58,9 @@ export function HomeScreen() {
     );
   }
 
-  function renderFakeItem(undefinedValue: undefined) {
+  function renderFakeItem(undefinedValue: undefined, index: number) {
     return (
-      <ProductCardContainer>
+      <ProductCardContainer index={index}>
         <SkeletonLoading value={undefinedValue} />
       </ProductCardContainer>
     );
@@ -81,7 +81,7 @@ export function HomeScreen() {
           marginHorizontal: metrics.screenHorizontalPadding,
           marginVertical: metrics.space,
         }}
-        renderItem={({ item }) => renderFakeItem(item)}
+        renderItem={({ item, index }) => renderFakeItem(item, index)}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={renderFooter}
       />
