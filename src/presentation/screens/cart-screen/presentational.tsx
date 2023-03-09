@@ -1,38 +1,23 @@
-import React, { useContext, useEffect, useState, useCallback } from 'react';
+import React, { useContext } from 'react';
 
 // Components
 import { FlatList } from 'react-native';
 import { CheckoutProductCard, EmptyShoppingCart, ListFooter } from '~/presentation/components';
 import { Heading } from '~/presentation/components/texts';
 
-// Redux
-import { useSelector } from 'react-redux';
+// Hooks
+import { useCheckoutProducts } from '~/presentation/hooks';
 
 // Styles
 import { CheckoutProductCardContainer } from './styles';
 import { ThemeContext } from 'styled-components';
 
 // Types
-import { RootState } from '~/presentation/redux/store/redux-store';
 import { UserCheckoutProducts } from '~/presentation/redux/slices/user-checkout-products/types';
 
 export function CartScreen() {
-  const [totalProductsInCart, setTotalProductsInCart] = useState<number>(0);
-  const userCheckoutProducts: UserCheckoutProducts[] = useSelector(
-    (state: RootState) => state.userCheckoutProducts.products,
-  );
+  const { totalProductsInCart, userCheckoutProducts } = useCheckoutProducts();
   const { metrics } = useContext(ThemeContext);
-
-  const calculateTotalOfProductsInCart = useCallback(() => {
-    const totalProductsInCart = userCheckoutProducts.reduce((acc, currentProduct) => {
-      return acc + currentProduct.userProductQuantity;
-    }, 0);
-    setTotalProductsInCart(totalProductsInCart);
-  }, [userCheckoutProducts]);
-
-  useEffect(() => {
-    calculateTotalOfProductsInCart();
-  }, [calculateTotalOfProductsInCart]);
 
   function renderItem(product: UserCheckoutProducts) {
     return (

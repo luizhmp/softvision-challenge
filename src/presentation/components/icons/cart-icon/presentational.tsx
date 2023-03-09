@@ -6,23 +6,19 @@ import { routes } from '~/presentation/navigation/routes';
 // Icons
 import { AntDesign } from '@expo/vector-icons';
 
-// Redux
-import { useSelector } from 'react-redux';
+// Hooks
+import { useCheckoutProducts } from '~/presentation/hooks';
 
 // Styles
 import { BoldHeading, UserCheckoutProductsTotalQuantityContainer } from './styles';
 
 // Types
 import { StackNavigation } from '~/presentation/navigation/navigators/types';
-import { RootState } from '~/presentation/redux/store/redux-store';
-import { UserCheckoutProducts } from '~/presentation/redux/slices/user-checkout-products/types';
 
 export function CartIcon() {
   const [totalProductsInCart, setTotalProductsInCart] = useState<number>(0);
   const navigation = useNavigation<StackNavigation>();
-  const userCheckoutProducts: UserCheckoutProducts[] = useSelector(
-    (state: RootState) => state.userCheckoutProducts.products,
-  );
+  const { userCheckoutProducts } = useCheckoutProducts();
 
   const calculateTotalOfProductsInCart = useCallback(() => {
     const totalProductsInCart = userCheckoutProducts.reduce((acc, currentProduct) => {

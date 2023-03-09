@@ -7,8 +7,11 @@ import { Heading } from '~/presentation/components/texts';
 // Helpers
 import { formatNumberIntoCurrency } from '~/presentation/helpers/formatters';
 
+// Hooks
+import { useCheckoutProducts } from '~/presentation/hooks';
+
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   addUserCheckoutProduct,
   decreaseUserCheckoutProductQuantity,
@@ -26,15 +29,12 @@ import {
 } from './styles';
 
 // Types
-import { RootState } from '~/presentation/redux/store/redux-store';
 import { ProductCardPresentationalInterface } from './types';
-import { UserCheckoutProducts } from '~/presentation/redux/slices/user-checkout-products/types';
 
 export function ProductCard({ product }: ProductCardPresentationalInterface) {
   const [userProductQuantityInCart, setUserProductQuantityInCart] = useState<number>(0);
-  const userCheckoutProducts: UserCheckoutProducts[] = useSelector(
-    (state: RootState) => state.userCheckoutProducts.products,
-  );
+  const { userCheckoutProducts } = useCheckoutProducts();
+
   const dispatch = useDispatch();
   const { id, image, description, price, title } = product;
   const formattedPrice = formatNumberIntoCurrency(price);
