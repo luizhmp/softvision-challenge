@@ -13,6 +13,8 @@ It was made with the current technologies:
 - Jest for tests;
 - Axios;
 
+Clean architecture principles were used on the development of the project.
+
 ## How to install and run the project
 
 A few steps is needed to install and run this project:
