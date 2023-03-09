@@ -31,7 +31,8 @@ export const ProductContentContainer = styled.View`
 `;
 
 export const PriceAndIconContainer = styled(ProductContentContainer)`
-  flex: 0.5;
+  flex: 1;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
 `;
