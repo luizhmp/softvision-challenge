@@ -10,4 +10,5 @@ export * from './navigation-header-title';
 export * from './product-card';
 export * from './buttons/quantity-button';
 export * from './icons/remove-item-icon';
+export * from './skeleton-loading';
 export * from './texts';
