@@ -42,7 +42,7 @@ describe('RemoteGetProducts', () => {
     await expect(promise).rejects.toThrow(new UnexpectedError());
   });
 
-  test('Should return an ProductModel if HttpGetClient returns 200', async () => {
+  test('Should return a ProductModel if HttpGetClient returns 200', async () => {
     const { sut, httpGetClientSpy } = makeSut();
     const httpResult = mockProductModel();
     httpGetClientSpy.response = {
