@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useMemo, useCallback } from 'react';
 
 // Components
 import { QuantityButton } from '~/presentation/components/buttons';
@@ -32,7 +32,6 @@ import {
 import { ProductCardPresentationalInterface } from './types';
 
 export function ProductCard({ product }: ProductCardPresentationalInterface) {
-  const [userProductQuantityInCart, setUserProductQuantityInCart] = useState<number>(0);
   const { userCheckoutProducts } = useCheckoutProducts();
 
   const dispatch = useDispatch();
@@ -57,14 +56,14 @@ export function ProductCard({ product }: ProductCardPresentationalInterface) {
     );
 
     if (userCheckoutProductFound) {
-      setUserProductQuantityInCart(userCheckoutProductFound.userProductQuantity);
+      return userCheckoutProductFound.userProductQuantity;
     } else {
-      setUserProductQuantityInCart(0);
+      return 0;
     }
   }, [id, userCheckoutProducts]);
 
-  useEffect(() => {
-    checkUserProductQuantityInCart();
+  const userProductQuantityInCart = useMemo(() => {
+    return checkUserProductQuantityInCart();
   }, [checkUserProductQuantityInCart]);
 
   function renderQuantityButton() {
