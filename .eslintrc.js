@@ -34,6 +34,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/await-thenable': 'off',
   },
   settings: {
     react: {
