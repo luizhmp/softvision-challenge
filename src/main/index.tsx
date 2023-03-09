@@ -8,6 +8,7 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { AppNavigator } from '~/presentation/navigation/navigators';
 import * as SplashScreen from 'expo-splash-screen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Redux
 import store from '~/presentation/redux/store/redux-store';
@@ -47,7 +48,9 @@ export default function Main() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <AppNavigator />
+        <SafeAreaProvider>
+          <AppNavigator />
+        </SafeAreaProvider>
       </ThemeProvider>
     </Provider>
   );
