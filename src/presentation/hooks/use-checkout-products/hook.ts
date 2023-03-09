@@ -28,7 +28,7 @@ export function useCheckoutProducts() {
 
   const calculateTotalValueInCart = useCallback(() => {
     const totalValueInCart = userCheckoutProducts.reduce((acc, currentProduct) => {
-      return acc + currentProduct.price;
+      return acc + currentProduct.price * currentProduct.userProductQuantity;
     }, 0);
 
     setTotalValueInCart(totalValueInCart);
