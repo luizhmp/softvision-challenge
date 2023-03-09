@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { registerRootComponent } from 'expo';
 import {
   useFonts,
@@ -7,6 +7,7 @@ import {
   Montserrat_600SemiBold,
 } from '@expo-google-fonts/montserrat';
 import { AppNavigator } from '~/presentation/navigation/navigators';
+import * as SplashScreen from 'expo-splash-screen';
 
 // Redux
 import store from '~/presentation/redux/store/redux-store';
@@ -22,6 +23,22 @@ export default function Main() {
     'Montserrat-Medium': Montserrat_500Medium,
     'Montserrat-SemiBold': Montserrat_600SemiBold,
   });
+
+  const showSplashScreen = useCallback(async () => {}, []);
+
+  useEffect(() => {
+    async function showSplashScreen() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+
+    async function hideSplashScreen() {
+      await SplashScreen.hideAsync();
+    }
+
+    if (!isFontsLoaded) return void showSplashScreen();
+
+    return void hideSplashScreen();
+  }, [isFontsLoaded, showSplashScreen]);
 
   if (!isFontsLoaded) {
     return null;
