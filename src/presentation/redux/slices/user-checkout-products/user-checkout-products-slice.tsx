@@ -45,7 +45,7 @@ export const userCheckoutProductsSlice = createSlice({
             return product;
           }
         })
-        .filter((product) => product.userProductQuantity >= 0);
+        .filter((product) => product.userProductQuantity !== 0);
       state.products = updatedProducts;
     },
     addUserCheckoutProduct: (state, action: PayloadAction<ProductModel>) => {
