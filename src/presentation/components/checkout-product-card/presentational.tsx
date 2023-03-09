@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useMemo, useCallback } from 'react';
 
 // Components
 import { QuantityButton } from '~/presentation/components/buttons';
@@ -32,11 +32,9 @@ import {
 import { CheckoutProductCardPresentationalInterface } from './types';
 
 export function CheckoutProductCard({ product }: CheckoutProductCardPresentationalInterface) {
-  const [totalPriceOfProduct, setTotalPriceOfProduct] = useState<number>(product.price);
   const { userCheckoutProducts } = useCheckoutProducts();
 
   const { id, image, description, title, userProductQuantity } = product;
-  const formattedPrice = formatNumberIntoCurrency(totalPriceOfProduct);
   const dispatch = useDispatch();
 
   const calculateTotalPriceOfProduct = useCallback(() => {
@@ -51,11 +49,13 @@ export function CheckoutProductCard({ product }: CheckoutProductCardPresentation
       return acc;
     }, 0);
 
-    setTotalPriceOfProduct(totalPriceOfProduct);
+    return totalPriceOfProduct;
   }, [id, userCheckoutProducts]);
 
-  useEffect(() => {
-    calculateTotalPriceOfProduct();
+  const formattedPrice = useMemo(() => {
+    const totalPriceOfProduct = calculateTotalPriceOfProduct();
+
+    return formatNumberIntoCurrency(totalPriceOfProduct);
   }, [calculateTotalPriceOfProduct]);
 
   function onPressRemoveIcon() {
