@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -11,19 +11,17 @@ export function useCheckoutProducts() {
   const userCheckoutProducts: UserCheckoutProducts[] = useSelector(
     (state: RootState) => state.userCheckoutProducts.products,
   );
-  const [totalProductsInCart, setTotalProductsInCart] = useState<number>(0);
-  const [totalValueInCart, setTotalValueInCart] = useState<number>(0);
 
   const calculateTotalOfProductsInCart = useCallback(() => {
     const totalProductsInCart = userCheckoutProducts.reduce((acc, currentProduct) => {
       return acc + currentProduct.userProductQuantity;
     }, 0);
 
-    setTotalProductsInCart(totalProductsInCart);
+    return totalProductsInCart;
   }, [userCheckoutProducts]);
 
-  useEffect(() => {
-    calculateTotalOfProductsInCart();
+  const totalProductsInCart = useMemo(() => {
+    return calculateTotalOfProductsInCart();
   }, [calculateTotalOfProductsInCart]);
 
   const calculateTotalValueInCart = useCallback(() => {
@@ -31,11 +29,11 @@ export function useCheckoutProducts() {
       return acc + currentProduct.price * currentProduct.userProductQuantity;
     }, 0);
 
-    setTotalValueInCart(totalValueInCart);
+    return totalValueInCart;
   }, [userCheckoutProducts]);
 
-  useEffect(() => {
-    calculateTotalValueInCart();
+  const totalValueInCart = useMemo(() => {
+    return calculateTotalValueInCart();
   }, [calculateTotalValueInCart]);
 
   return { totalProductsInCart, totalValueInCart, userCheckoutProducts };
