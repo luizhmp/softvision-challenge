@@ -10,6 +10,7 @@ It was made with the current technologies:
 - Typescript;
 - Styled components;
 - Redux (although its a simple app, the userProducts was handled with Redux imagining a scallable project);
+- Jest for tests;
 - Axios;
 
 ## How to install and run the project
